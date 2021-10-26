@@ -1,0 +1,29 @@
+@import "../../App.scss";
+
+.hero {
+  .title {
+    font-family: "Montserrat-Black";
+    font-size: 48px;
+    line-height: 58px;
+    color: $biru-tua;
+  }
+  .subtitle {
+    font-family: "Hind-Light";
+    font-size: 18px;
+    color: $abu-tua;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hero {
+    text-align: center;
+    padding-top: 2.5rem;
+    .title {
+      font-size: 30px;
+      line-height: 36px;
+    }
+    .subtitle {
+      font-size: 16px;
+    }
+  }
+}

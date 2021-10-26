@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Montserrat-Bold";
+  src: local("Montserrat-Bold"), url("./fonts/Montserrat/Montserrat-Bold.ttf");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Montserrat-ExtraBold";
+  src: local("Montserrat-ExtraBold"),
+    url("./fonts/Montserrat/Montserrat-ExtraBold.ttf");
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: "Montserrat-Black";
+  src: local("Montserrat-Black"), url("./fonts/Montserrat/Montserrat-Black.ttf");
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: "MuktaVaani-Light";
+  src: local("MuktaVaani-Light"),
+    url("./fonts/Mukta-Vaani/MuktaVaani-Light.ttf");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "MuktaVaani-Regular";
+  src: local("MuktaVaani-Regular"),
+    url("./fonts/Mukta-Vaani/MuktaVaani-Regular.ttf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "MuktaVaani-Medium";
+  src: local("MuktaVaani-Medium"),
+    url("./fonts/Mukta-Vaani/MuktaVaani-Medium.ttf");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "MuktaVaani-SemiBold";
+  src: local("MuktaVaani-SemiBold"),
+    url("./fonts/Mukta-Vaani/MuktaVaani-SemiBold.ttf");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "MuktaVaani-Bold";
+  src: local("MuktaVaani-Bold"), url("./fonts/Mukta-Vaani/MuktaVaani-Bold.ttf");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Mulish-Regular";
+  src: local("Mulish-Regular"), url("./fonts/Mulish/Mulish-Regular.ttf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Mulish-SemiBold";
+  src: local("Mulish-SemiBold"), url("./fonts/Mulish/Mulish-SemiBold.ttf");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Hind-Light";
+  src: local("Hind-Light"), url("./fonts/Hind/Hind-Light.ttf");
+  font-weight: 300;
+}
+
+body {
+  margin: 0;
+  max-width: 100vw !important;
+  overflow-x: hidden !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
