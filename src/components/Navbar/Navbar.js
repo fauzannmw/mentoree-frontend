@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Navbar.scss";
 import Logo from "../../assets/icon/mentoree-logo-black.png";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [mobile, setMobile] = useState(false);
@@ -50,18 +51,18 @@ const Navbar = () => {
 
           {/* secondary nav */}
           <div class="hidden md:flex items-center space-x-3 text-xl font-medium ">
-            <a
-              href="/login"
-              class="py-1.5 px-8 text-gray-700 bg-transparent hover:bg-yellow-400 border border-yellow-300 hover:border-transparent rounded-3xl transition duration-500"
+            <Link
+              to="/login-getaway"
+              className="py-1.5 px-8 text-gray-700 bg-transparent hover:bg-yellow-400 border border-yellow-300 hover:border-transparent rounded-3xl transition duration-500"
             >
               Masuk
-            </a>
-            <a
-              href="/register"
-              class="py-1.5 px-8 text-white bg-yellow-400 hover:bg-yellow-500 rounded-3xl transition duration-300"
+            </Link>
+            <Link
+              to="/register-getaway"
+              className="py-1.5 px-8 text-white bg-yellow-400 hover:bg-yellow-500 rounded-3xl transition duration-300"
             >
               Daftar
-            </a>
+            </Link>
           </div>
 
           {/* mobile button goes here */}
@@ -87,33 +88,33 @@ const Navbar = () => {
       </div>
 
       {mobile == true && (
-        <div class="mobile-menu md:hidden py-4">
+        <div class="mobile-menu md:hidden py-4 transition duration-1000">
           <a
-            href="#"
+            href="/"
             class="block py-2 px-6 text-lg font-medium text-gray-700 hover:text-gray-900"
           >
             Home
           </a>
           <a
-            href="#"
+            href="/about-us"
             class="block py-2 px-6 text-lg font-medium text-gray-700 hover:text-gray-900"
           >
             About Us
           </a>
           <a
-            href="#"
+            href="/explore"
             class="block py-2 px-6 text-lg font-medium text-gray-700 hover:text-gray-900"
           >
             Explore
           </a>
           <a
-            href=""
+            href="/login-getaway"
             class="block py-2 px-6 text-lg font-medium text-gray-700 hover:text-gray-900"
           >
             Masuk
           </a>
           <a
-            href=""
+            href="/register-getaway"
             class="block py-2 px-6 text-lg font-medium text-gray-700 hover:text-gray-900"
           >
             Daftar

@@ -1,0 +1,16 @@
+@import "../../App.scss";
+
+.login {
+  .title {
+    color: $biru-tua;
+    h1 {
+      font-family: "Montserrat-ExtraBold";
+    }
+    h5 {
+      font-family: "Hind-Light";
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+}
