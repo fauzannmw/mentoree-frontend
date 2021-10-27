@@ -11,13 +11,13 @@ import Navbar from "./components/Navbar/Navbar";
 function App() {
   return (
     <Router>
-      <div className="App">
+      <div className="App min-h-screen bg-gray-100">
         <Navbar />
         <Switch>
           <Route exact path="/" component={Homepage} />
         </Switch>
       </div>
-     </Router>
+    </Router>
   );
 }
 

@@ -13,7 +13,7 @@ const Navbar = () => {
   }
 
   return (
-    <nav class="bg-gray-100">
+    <nav class="bg-gray-100 sticky top-0">
       <div class="max-w-6xl mx-auto px-4">
         <div class="flex justify-between">
           {/* logo */}
@@ -30,19 +30,19 @@ const Navbar = () => {
           <div class="hidden md:flex items-center space-x-3">
             <a
               href="/"
-              class="py-5 px-3 text-xl font-medium text-gray-700 hover:text-gray-900"
+              class="py-5 px-3 text-xl font-medium text-gray-700 hover:text-yellow-400 transition duration-300"
             >
               Home
             </a>
             <a
               href="/about-us"
-              class="py-5 px-3 text-xl font-medium text-gray-700 hover:text-gray-900"
+              class="py-5 px-3 text-xl font-medium text-gray-700 hover:text-yellow-400 transition duration-300"
             >
               About Us
             </a>
             <a
               href="/explore"
-              class="py-5 px-3 text-xl font-medium text-gray-700 hover:text-gray-900"
+              class="py-5 px-3 text-xl font-medium text-gray-700 hover:text-yellow-400 transition duration-300"
             >
               Explore
             </a>
@@ -52,7 +52,7 @@ const Navbar = () => {
           <div class="hidden md:flex items-center space-x-3 text-xl font-medium ">
             <a
               href="/login"
-              class="py-1.5 px-8 text-gray-700 bg-transparent hover:bg-yellow-400 border border-yellow-300 hover:border-transparent rounded-3xl transition duration-300"
+              class="py-1.5 px-8 text-gray-700 bg-transparent hover:bg-yellow-400 border border-yellow-300 hover:border-transparent rounded-3xl transition duration-500"
             >
               Masuk
             </a>
