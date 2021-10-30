@@ -1,5 +1,4 @@
 import React from "react";
-// import "./Gateaway.scss";
 import mentorImage from "../../assets/image/mentor-login.svg";
 import menteeImage from "../../assets/image/mentee-login.svg";
 import { Link } from "react-router-dom";

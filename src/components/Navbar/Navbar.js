@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./Navbar.scss";
 import Logo from "../../assets/icon/mentoree-logo-black.png";
 import { Link } from "react-router-dom";
 
@@ -20,7 +19,7 @@ const Navbar = () => {
           {/* logo */}
           <div>
             <a
-              href="#"
+              href="/"
               class="flex items-center pt-3 md:py-5 px-2 text-gray-700 hover:text-gray-900"
             >
               <img src={Logo} className="w-44 mr-1" alt="" />
@@ -52,13 +51,13 @@ const Navbar = () => {
           {/* secondary nav */}
           <div class="hidden md:flex items-center space-x-3 text-xl font-medium ">
             <Link
-              to="/login-getaway"
+              to="/login-gateaway"
               className="py-1.5 px-8 text-gray-700 bg-transparent hover:bg-yellow-400 border border-yellow-300 hover:border-transparent rounded-3xl transition duration-500"
             >
               Masuk
             </Link>
             <Link
-              to="/register-getaway"
+              to="/register-gateaway"
               className="py-1.5 px-8 text-white bg-yellow-400 hover:bg-yellow-500 rounded-3xl transition duration-300"
             >
               Daftar
@@ -108,13 +107,13 @@ const Navbar = () => {
             Explore
           </a>
           <a
-            href="/login-getaway"
+            href="/login-gateaway"
             class="block py-2 px-6 text-lg font-medium text-gray-700 hover:text-gray-900"
           >
             Masuk
           </a>
           <a
-            href="/register-getaway"
+            href="/register-gateaway"
             class="block py-2 px-6 text-lg font-medium text-gray-700 hover:text-gray-900"
           >
             Daftar

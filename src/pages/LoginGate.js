@@ -1,12 +1,12 @@
 import React from "react";
 import Gateaway from "../components/Gateaway/Gateaway";
 
-const LoginGet = () => {
+const LoginGate = () => {
   return (
-    <div className="loginget">
+    <div className="logingate">
       <Gateaway action="Masuk" destination="login" />
     </div>
   );
 };
 
-export default LoginGet;
+export default LoginGate;

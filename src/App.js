@@ -2,9 +2,11 @@ import "./App.scss";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Homepage from "./pages/Homepage";
 import Navbar from "./components/Navbar/Navbar";
-import LoginGet from "./pages/LoginGet";
-import RegisterGet from "./pages/RegisterGet";
+import LoginGate from "./pages/LoginGate";
+import RegisterGate from "./pages/RegisterGate";
 import LoginMentor from "./pages/LoginMentor";
+import LoginMentee from "./pages/LoginMentee";
+import RegisterMentee from "./pages/RegisterMentee";
 
 function App() {
   return (
@@ -13,10 +15,11 @@ function App() {
         <Navbar />
         <Switch>
           <Route exact path="/" component={Homepage} />
-          <Route exact path="/login-getaway" component={LoginGet} />
-          <Route exact path="/register-getaway" component={RegisterGet} />
-          <Route exact path="/login-mentee" component={LoginMentor} />
+          <Route exact path="/login-gateaway" component={LoginGate} />
+          <Route exact path="/register-gateaway" component={RegisterGate} />
           <Route exact path="/login-mentor" component={LoginMentor} />
+          <Route exact path="/login-mentee" component={LoginMentee} />
+          <Route exact path="/register-mentee" component={RegisterMentee} />
         </Switch>
       </div>
     </Router>

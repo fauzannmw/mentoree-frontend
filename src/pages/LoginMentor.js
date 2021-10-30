@@ -4,7 +4,7 @@ import Login from "../components/Login/Login";
 const LoginMentor = () => {
   return (
     <div>
-      <Login />
+      <Login role="Mentor" />
     </div>
   );
 };
