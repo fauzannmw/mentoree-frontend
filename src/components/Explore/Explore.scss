@@ -1,0 +1,13 @@
+@import "../../App.scss";
+
+.explore {
+  .title {
+    color: $biru-tua;
+    h1 {
+      font-family: "Montserrat-ExtraBold";
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+}

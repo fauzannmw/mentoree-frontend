@@ -7,7 +7,7 @@ const Navbar = () => {
   const [IsloggedIn, setIsLoggedIn] = useState(false);
 
   function handleClick() {
-    if (mobile == true) {
+    if (mobile === true) {
       setMobile(false);
     } else {
       setMobile(true);
@@ -15,7 +15,7 @@ const Navbar = () => {
   }
   useEffect(() => {
     const checkLocalStorage = () => {
-      if (localStorage.getItem("token") == null) {
+      if (localStorage.getItem("token") === null) {
         setIsLoggedIn(false);
       } else {
         setIsLoggedIn(true);
@@ -27,6 +27,7 @@ const Navbar = () => {
 
   function onLogout() {
     localStorage.removeItem("token");
+    window.location.href = "/";
   }
 
   return (
@@ -114,7 +115,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {mobile == true && (
+      {mobile === true && (
         <div className="mobile-menu md:hidden py-4 transition duration-1000">
           <a
             href="/"

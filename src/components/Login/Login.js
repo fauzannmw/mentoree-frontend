@@ -10,17 +10,18 @@ const Login = (props) => {
   const [password, setPassword] = useState("");
 
   var roleImage = "";
-  if (props.role == "Mentor") {
+  if (props.role === "Mentor") {
     roleImage = mentorImage;
-  } else if (props.role == "Mentee") {
+  } else if (props.role === "Mentee") {
     roleImage = menteeImage;
   }
 
   async function onSubmit() {
     if (props.role === "Mentor") {
-      var req = await MENTOR_LOGIN(email, password);
+      var req = "";
+      req = await MENTOR_LOGIN(email, password);
     } else {
-      var req = await MENTEE_LOGIN(email, password);
+      req = await MENTEE_LOGIN(email, password);
     }
     console.log(req);
     const token = req.data.data.token;

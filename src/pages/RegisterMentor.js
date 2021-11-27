@@ -3,6 +3,7 @@ import "./Register.scss";
 import { Link } from "react-router-dom";
 import mentorImage from "../assets/image/mentor-login.svg";
 import profileImage from "../assets/image/profile-image-1.png";
+import { MENTOR_REGISTER } from "../api";
 
 const RegisterMentor = () => {
   const [page, setPage] = useState(1);
@@ -22,6 +23,25 @@ const RegisterMentor = () => {
       return;
     }
     setPage((page) => page + 1);
+  }
+
+  async function onSubmit() {
+    const req = await MENTOR_REGISTER(
+      fname,
+      lname,
+      email,
+      password,
+      alamat,
+      pekerjaan,
+      bidang,
+      about,
+      rate,
+      pendidikan
+    );
+    console.log(req);
+    const token = req.data.data.token;
+    localStorage.setItem("token", token);
+    window.location.href = "/";
   }
 
   return (
@@ -134,11 +154,12 @@ const RegisterMentor = () => {
                     onChange={(e) => setBidang(e.target.value)}
                     className="flex p-2.5 rounded-md bg-white text-gray-800 border border-gray-500 hover:border-gray-700"
                   >
-                    <option value="">Pilih Kategori</option>
+                    <option value="" disabled>
+                      Pilih Kategori
+                    </option>
                     <option value="1">Persiapan Karir</option>
                     <option value="2">Pemrograman</option>
                     <option value="3">Musik</option>
-                    <option value="4">...</option>
                   </select>
                 </div>
                 <div className="flex flex-col gap-1">
@@ -174,10 +195,11 @@ const RegisterMentor = () => {
                     Unggah
                   </button>
                 </div> */}
-                <div className="flex flex-col row-span-2 gap-1">
+                <div className="flex flex-col gap-1">
                   <label htmlFor="about" className="text-2xl">
-                    Latar Belakang
+                    Penjelasan Singkat Mengenai Diri Anda
                   </label>
+                  <label htmlFor="about">Contoh: Frontend Developer di Traveloka Id</label>
                   <input
                     type="text"
                     id="about"
@@ -189,10 +211,10 @@ const RegisterMentor = () => {
                 </div>
                 <div className="flex flex-col gap-1">
                   <label htmlFor="rate" className="text-2xl">
-                    Tarif (Rp/Bulan)
+                    Tarif (Rp/Pertemuan)
                   </label>
                   <input
-                    type="text"
+                    type="number"
                     id="rate"
                     name="rate"
                     value={rate}
@@ -214,7 +236,8 @@ const RegisterMentor = () => {
           {page === 3 && (
             <button
               className="flex justify-center w-5/6 p-2.5 rounded-lg text-white text-2xl font-semibold bg-yellow-400 hover:bg-yellow-500 transition duration-500"
-              type="submit"
+              type="button"
+              onClick={onSubmit}
             >
               Daftar
             </button>
