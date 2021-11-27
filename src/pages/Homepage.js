@@ -4,7 +4,7 @@ import Hero from "../components/Hero/Hero";
 const Homepage = () => {
   return (
     <div className="homepage">
-      <Hero />
+      <Hero page="homepage" />
     </div>
   );
 };

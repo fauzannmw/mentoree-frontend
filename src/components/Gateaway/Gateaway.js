@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const Gateaway = (props) => {
   return (
     <div className="gateaway flex items-center justify-center py-8 md:py-24">
-      <div className="grid grid-cols-2">
+      <div className="grid grid-cols-2 md:gap-4">
         <div className="flex flex-col justify-between bg-white shadow-md hover:shadow-2xl m-2 md:m-8 py-8 space-y-8 rounded-2xl hover:bg-gray-50 transition duration-300">
           <img className="md:py-8" src={mentorImage} alt="" />
           <Link

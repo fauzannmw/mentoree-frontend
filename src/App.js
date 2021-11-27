@@ -8,23 +8,28 @@ import LoginMentor from "./pages/LoginMentor";
 import LoginMentee from "./pages/LoginMentee";
 import RegisterMentor from "./pages/RegisterMentor";
 import RegisterMentee from "./pages/RegisterMentee";
+import { AuthProvider } from "./hooks/useAuth";
+import Explore from "./pages/Explore";
 
 function App() {
   return (
-    <Router>
-      <div className="App min-h-screen bg-gray-100">
-        <Navbar />
-        <Switch>
-          <Route exact path="/" component={Homepage} />
-          <Route exact path="/login-gateaway" component={LoginGate} />
-          <Route exact path="/register-gateaway" component={RegisterGate} />
-          <Route exact path="/login-mentor" component={LoginMentor} />
-          <Route exact path="/login-mentee" component={LoginMentee} />
-          <Route exact path="/register-mentor" component={RegisterMentor} />
-          <Route exact path="/register-mentee" component={RegisterMentee} />
-        </Switch>
-      </div>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <div className="App min-h-screen bg-gray-100">
+          <Navbar />
+          <Switch>
+            <Route exact path="/" component={Homepage} />
+            <Route exact path="/explore" component={Explore} />
+            <Route exact path="/login-gateaway" component={LoginGate} />
+            <Route exact path="/register-gateaway" component={RegisterGate} />
+            <Route exact path="/login-mentor" component={LoginMentor} />
+            <Route exact path="/login-mentee" component={LoginMentee} />
+            <Route exact path="/register-mentor" component={RegisterMentor} />
+            <Route exact path="/register-mentee" component={RegisterMentee} />
+          </Switch>
+        </div>
+      </Router>
+    </AuthProvider>
   );
 }
 

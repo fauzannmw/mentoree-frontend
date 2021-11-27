@@ -3,13 +3,30 @@ import "./Login.scss";
 import mentorImage from "../../assets/image/mentor-login.svg";
 import menteeImage from "../../assets/image/mentee-login.svg";
 import { Link } from "react-router-dom";
+import { MENTEE_LOGIN, MENTOR_LOGIN } from "../../api";
 
 const Login = (props) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   var roleImage = "";
   if (props.role == "Mentor") {
     roleImage = mentorImage;
   } else if (props.role == "Mentee") {
     roleImage = menteeImage;
+  }
+
+  async function onSubmit() {
+    if (props.role === "Mentor") {
+      var req = await MENTOR_LOGIN(email, password);
+    } else {
+      var req = await MENTEE_LOGIN(email, password);
+    }
+    console.log(req);
+    const token = req.data.data.token;
+    localStorage.setItem("token", token);
+    window.location.href = "/";
+    console.log(token);
   }
 
   return (
@@ -35,6 +52,8 @@ const Login = (props) => {
                   type="text"
                   id="email"
                   name="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   className="flex p-2.5 rounded-md bg-white text-gray-800  border border-gray-500 "
                 />
               </div>
@@ -46,20 +65,28 @@ const Login = (props) => {
                   type="password"
                   id="password"
                   name="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   className="flex p-2.5 rounded-md bg-white text-gray-800  border border-gray-500 focus:border-transparent "
                 />
               </div>
             </form>
           </div>
 
-          <button className="flex justify-center w-5/6 p-2.5 rounded-lg text-white text-2xl font-semibold bg-yellow-400 hover:bg-yellow-500 transition duration-500">
+          <button
+            className="flex justify-center w-5/6 p-2.5 rounded-lg text-white text-2xl font-semibold bg-yellow-400 hover:bg-yellow-500 transition duration-500"
+            type="button"
+            onClick={onSubmit}
+          >
             Masuk
           </button>
         </div>
       </div>
       <div className="flex flex-row space-x-2 justify-center px-6 py-12 text-lg">
         <h5 className="font-medium text-gray-900">Belum mempunyai akun ?</h5>
-        <Link to="/register-gateaway" className="font-semibold text-blue-400">Daftar Sekarang</Link>
+        <Link to="/register-gateaway" className="font-semibold text-blue-400">
+          Daftar Sekarang
+        </Link>
       </div>
     </div>
   );

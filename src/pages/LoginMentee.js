@@ -1,12 +1,12 @@
-import React from 'react';
+import React from "react";
 import Login from "../components/Login/Login";
 
 const LoginMentee = () => {
-    return (
-      <div>
-        <Login role="Mentee" />
-      </div>
-    );
-}
+  return (
+    <div>
+      <Login role="Mentee" />
+    </div>
+  );
+};
 
-export default LoginMentee
+export default LoginMentee;

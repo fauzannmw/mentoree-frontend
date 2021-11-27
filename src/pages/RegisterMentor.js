@@ -6,6 +6,16 @@ import profileImage from "../assets/image/profile-image-1.png";
 
 const RegisterMentor = () => {
   const [page, setPage] = useState(1);
+  const [fname, setFname] = useState("");
+  const [lname, setLname] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [alamat, setAlamat] = useState("");
+  const [pekerjaan, setPekerjaan] = useState("");
+  const [bidang, setBidang] = useState("");
+  const [pendidikan, setPendidikan] = useState("");
+  const [about, setAbout] = useState("");
+  const [rate, setRate] = useState("");
 
   function goNextPage() {
     if (page === 3) {
@@ -29,13 +39,28 @@ const RegisterMentor = () => {
             <div className="form w-5/6">
               <form className="grid grid-rows-3 gap-4">
                 <div className="flex flex-col gap-1">
-                  <label htmlFor="name" className="text-2xl">
-                    Nama Lengkap
+                  <label htmlFor="fname" className="text-2xl">
+                    Nama Depan
                   </label>
                   <input
                     type="text"
-                    id="name"
-                    name="name"
+                    id="fname"
+                    name="fname"
+                    value={fname}
+                    onChange={(e) => setFname(e.target.value)}
+                    className="flex p-2.5 rounded-md bg-white text-gray-800 border border-gray-500 hover:border-gray-700"
+                  />
+                </div>
+                <div className="flex flex-col gap-1">
+                  <label htmlFor="lname" className="text-2xl">
+                    Nama Belakang
+                  </label>
+                  <input
+                    type="text"
+                    id="lname"
+                    name="lname"
+                    value={lname}
+                    onChange={(e) => setLname(e.target.value)}
                     className="flex p-2.5 rounded-md bg-white text-gray-800 border border-gray-500 hover:border-gray-700"
                   />
                 </div>
@@ -47,6 +72,8 @@ const RegisterMentor = () => {
                     type="text"
                     id="email"
                     name="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     className="flex p-2.5 rounded-md bg-white text-gray-800 border border-gray-500 hover:border-gray-700"
                   />
                 </div>
@@ -58,17 +85,8 @@ const RegisterMentor = () => {
                     type="password"
                     id="password"
                     name="password"
-                    className="flex p-2.5 rounded-md bg-white text-gray-800 border border-gray-500 hover:border-gray-700"
-                  />
-                </div>
-                <div className="flex flex-col gap-1">
-                  <label htmlFor="alamat" className="text-2xl">
-                    Alamat
-                  </label>
-                  <input
-                    type="text"
-                    id="alamat"
-                    name="alamat"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                     className="flex p-2.5 rounded-md bg-white text-gray-800 border border-gray-500 hover:border-gray-700"
                   />
                 </div>
@@ -80,6 +98,19 @@ const RegisterMentor = () => {
             <div className="form w-5/6">
               <form className="grid grid-rows-3 gap-4">
                 <div className="flex flex-col gap-1">
+                  <label htmlFor="alamat" className="text-2xl">
+                    Alamat
+                  </label>
+                  <input
+                    type="text"
+                    id="alamat"
+                    name="alamat"
+                    value={alamat}
+                    onChange={(e) => setAlamat(e.target.value)}
+                    className="flex p-2.5 rounded-md bg-white text-gray-800 border border-gray-500 hover:border-gray-700"
+                  />
+                </div>
+                <div className="flex flex-col gap-1">
                   <label htmlFor="pekerjaan" className="text-2xl">
                     Pekerjaan
                   </label>
@@ -87,16 +118,20 @@ const RegisterMentor = () => {
                     type="text"
                     id="pekerjaan"
                     name="pekerjaan"
+                    value={pekerjaan}
+                    onChange={(e) => setPekerjaan(e.target.value)}
                     className="flex p-2.5 rounded-md bg-white text-gray-800 border border-gray-500 hover:border-gray-700"
                   />
                 </div>
                 <div className="flex flex-col gap-1">
-                  <label htmlFor="category" className="text-2xl">
-                    Kategori Subjek
+                  <label htmlFor="bidang" className="text-2xl">
+                    Bidang
                   </label>
                   <select
-                    name="category"
-                    id="category"
+                    id="bidang"
+                    name="bidang"
+                    value={bidang}
+                    onChange={(e) => setBidang(e.target.value)}
                     className="flex p-2.5 rounded-md bg-white text-gray-800 border border-gray-500 hover:border-gray-700"
                   >
                     <option value="">Pilih Kategori</option>
@@ -107,6 +142,39 @@ const RegisterMentor = () => {
                   </select>
                 </div>
                 <div className="flex flex-col gap-1">
+                  <label htmlFor="pendidikan" className="text-2xl">
+                    Pendidikan
+                  </label>
+                  <input
+                    type="text"
+                    id="pendidikan"
+                    name="pendidikan"
+                    value={pendidikan}
+                    onChange={(e) => setPendidikan(e.target.value)}
+                    className="flex p-2.5 rounded-md bg-white text-gray-800 border border-gray-500 hover:border-gray-700"
+                  />
+                </div>
+              </form>
+            </div>
+          )}
+
+          {page === 3 && (
+            <div className="form w-5/6 mb-4">
+              <form className="grid grid-rows-3 gap-4">
+                {/* <div className="flex flex-col gap-10">
+                  <label htmlFor="pekerjaan" className="title text-2xl">
+                    Unggah Foto Anda
+                  </label>
+                  <img
+                    src={profileImage}
+                    alt=""
+                    className="w-2/5 place-self-center"
+                  />
+                  <button className="flex justify-center place-self-center w-full py-2.5 rounded-lg text-white text-2xl font-semibold bg-blue-500 hover:bg-blue-600 transition duration-500">
+                    Unggah
+                  </button>
+                </div> */}
+                <div className="flex flex-col row-span-2 gap-1">
                   <label htmlFor="about" className="text-2xl">
                     Latar Belakang
                   </label>
@@ -114,6 +182,8 @@ const RegisterMentor = () => {
                     type="text"
                     id="about"
                     name="about"
+                    value={about}
+                    onChange={(e) => setAbout(e.target.value)}
                     className="flex p-2.5 rounded-md bg-white text-gray-800 border border-gray-500 hover:border-gray-700"
                   />
                 </div>
@@ -125,40 +195,10 @@ const RegisterMentor = () => {
                     type="text"
                     id="rate"
                     name="rate"
+                    value={rate}
+                    onChange={(e) => setRate(e.target.value)}
                     className="flex p-2.5 rounded-md bg-white text-gray-800 border border-gray-500 hover:border-gray-700"
                   />
-                </div>
-              </form>
-            </div>
-          )}
-
-          {page === 3 && (
-            <div className="form w-5/6 mb-4">
-              <form className="grid grid-rows gap-4">
-                <div className="flex flex-col gap-10">
-                  <label htmlFor="pekerjaan" className="title text-2xl">
-                    Unggah Foto Anda
-                  </label>
-                  <img
-                    src={profileImage}
-                    alt=""
-                    className="w-2/5 place-self-center"
-                  />
-                  <label
-                    htmlFor="file"
-                    className="px-4 h-9 inline-flex items-center rounded-lg text-2xl text-white bg-blue-500 "
-                  >
-                    Select Files
-                    <input
-                      type="file"
-                      name="file"
-                      multiple
-                      className="sr-only"
-                    />
-                  </label>
-                  <button className="flex justify-center place-self-center w-full py-2.5 rounded-lg text-white text-2xl font-semibold bg-blue-500 hover:bg-blue-600 transition duration-500">
-                    Unggah
-                  </button>
                 </div>
               </form>
             </div>
@@ -183,9 +223,9 @@ const RegisterMentor = () => {
         <img src={mentorImage} alt="" />
       </div>
       <div className="flex flex-row space-x-2 justify-center px-6 py-12 text-lg">
-        <h5 className="font-medium text-gray-900">Belum mempunyai akun ?</h5>
-        <Link to="/register-gateaway" className="font-semibold text-blue-400">
-          Daftar Sekarang
+        <h5 className="font-medium text-gray-900">Sudah mempunyai akun ?</h5>
+        <Link to="/login-gateaway" className="font-semibold text-blue-400">
+          Login
         </Link>
       </div>
     </div>
