@@ -4,7 +4,7 @@ import Hero from "../components/Hero/Hero";
 
 const Explore = () => {
   return (
-    <div className="explore">
+    <div className="explore pb-12">
       <Hero page="explore" />
       <ExploreMentor />
     </div>

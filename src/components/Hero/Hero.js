@@ -5,16 +5,6 @@ import illustrationExplore from "../../assets/illustration/illustration_explore_
 // import { MENTEE_GET_USER } from "../../api";
 
 const Hero = (props) => {
-  //   const [desc, setDesc] = useState("");
-  //   const getUser = async () => {
-  //     const req = await MENTOR_GET_USER(1);
-  //     console.log(req.data);
-  //     setDesc(req.data.data.alamat);
-  //   };
-  //   useEffect(() => {
-  //     getUser();
-  //   }, []);
-
   return (
     <div className="hero md:py-24">
       {props.page === "homepage" ? (

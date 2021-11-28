@@ -2,30 +2,31 @@ import React, { useState, useEffect } from "react";
 import "./Explore.scss";
 import { Link } from "react-router-dom";
 import mentorImage from "../../assets/image/mentor-image-1.png";
-import { MENTOR_GET_ALL, CATEGORY_GET_ALL } from "../../api";
+import { MENTOR_GET_ALL, CATEGORY_GET_MENTOR } from "../../api";
 
 const ExploreMentor = () => {
   const [category, setCategory] = useState([]);
   const [mentors, setMentor] = useState([]);
-  // const getAllCategory = async () => {
-  //   const req = await CATEGORY_GET_ALL();
-  //   console.log(req.data);
-  //   setCategory(req.data.data);
-  // };
-
-  const getMentorByCategory = async () => {
-    const req = await MENTOR_GET_ALL();
-    console.log(req.data);
-  };
 
   const getAllMentor = async () => {
     const req = await MENTOR_GET_ALL();
     console.log(req.data);
     setMentor(req.data.data);
   };
+
+  const getMentorByCategory = async () => {
+    const req = await CATEGORY_GET_MENTOR(category);
+    console.log(req.data);
+    setMentor(req.data.data);
+  };
+
   useEffect(() => {
     getAllMentor();
   }, []);
+
+  useEffect(() => {
+    getMentorByCategory();
+  }, [category]);
 
   return (
     <div className="explore grid place-content-center gap-12">
@@ -51,7 +52,10 @@ const ExploreMentor = () => {
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 place-items-center">
         {mentors &&
           mentors.map((mentor) => (
-            <Link className=" md:w-60 md:h-80 p-2 bg-white rounded-xl shadow-lg hover:shadow-2xl transition duration-500">
+            <Link
+              to="/"
+              className=" md:w-60 md:h-80 p-2 bg-white rounded-xl shadow-lg hover:shadow-2xl transition duration-500"
+            >
               {/* <Link className=" md:w-60 md:h-80 p-2 bg-white rounded-xl transform transition-all hover:-translate-y-2 duration-300 "> */}
               <img
                 src={mentorImage}
