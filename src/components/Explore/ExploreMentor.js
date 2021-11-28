@@ -7,11 +7,13 @@ import { MENTOR_GET_ALL, CATEGORY_GET_MENTOR } from "../../api";
 const ExploreMentor = () => {
   const [category, setCategory] = useState([]);
   const [mentors, setMentor] = useState([]);
+  const [mentorsId, setMentorId] = useState();
 
   const getAllMentor = async () => {
     const req = await MENTOR_GET_ALL();
     console.log(req.data);
     setMentor(req.data.data);
+    setMentorId(req.data.data.id_mentor);
   };
 
   const getMentorByCategory = async () => {
@@ -53,8 +55,8 @@ const ExploreMentor = () => {
         {mentors &&
           mentors.map((mentor) => (
             <Link
-              to="/"
-              className=" md:w-60 md:h-80 p-2 bg-white rounded-xl shadow-lg hover:shadow-2xl transition duration-500"
+              to="/mentor-detail/${mentor.id_mentor}"
+              className=" md:w-60 h-72 md:h-80 p-2 bg-white rounded-xl shadow-lg hover:shadow-2xl transition duration-500"
             >
               {/* <Link className=" md:w-60 md:h-80 p-2 bg-white rounded-xl transform transition-all hover:-translate-y-2 duration-300 "> */}
               <img

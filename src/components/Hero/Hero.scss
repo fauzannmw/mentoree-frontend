@@ -7,11 +7,28 @@
     line-height: 58px;
     color: $biru-tua;
   }
-  .subtitle {
-    font-family: "Hind-Light";
-    font-size: 18px;
-    color: $abu-tua;
+}
+.content {
+  .title {
+    font-family: "Montserrat-Bold";
+    font-size: 48px;
+    line-height: 58px;
+    color: $biru-tua;
   }
+}
+
+.description {
+  .title {
+    font-family: "Montserrat-Bold";
+    font-size: 48px;
+    line-height: 58px;
+    color: $biru-tua;
+  }
+}
+.subtitle {
+  font-family: "Hind-Light";
+  font-size: 18px;
+  color: $abu-tua;
 }
 
 @media screen and (max-width: 768px) {
@@ -22,8 +39,24 @@
       font-size: 30px;
       line-height: 36px;
     }
-    .subtitle {
-      font-size: 16px;
+  }
+  .content {
+    text-align: center;
+    padding-top: 2.5rem;
+    .title {
+      font-size: 30px;
+      line-height: 36px;
     }
+  }
+  .description {
+    text-align: center;
+    padding-top: 2.5rem;
+    .title {
+      font-size: 30px;
+      line-height: 36px;
+    }
+  }
+  .subtitle {
+    font-size: 16px;
   }
 }

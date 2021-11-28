@@ -10,6 +10,8 @@ import RegisterMentor from "./pages/RegisterMentor";
 import RegisterMentee from "./pages/RegisterMentee";
 import { AuthProvider } from "./hooks/useAuth";
 import Explore from "./pages/Explore";
+import About from "./pages/About";
+import Mentor from "./pages/Mentor";
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
           <Switch>
             <Route exact path="/" component={Homepage} />
             <Route exact path="/explore" component={Explore} />
+            <Route exact path="/about-us" component={About} />
+            <Route exact path="/mentor-detail" component={Mentor} />
             <Route exact path="/login-gateaway" component={LoginGate} />
             <Route exact path="/register-gateaway" component={RegisterGate} />
             <Route exact path="/login-mentor" component={LoginMentor} />
