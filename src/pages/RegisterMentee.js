@@ -46,6 +46,7 @@ const RegisterMentee = () => {
                   value={fname}
                   onChange={(e) => setFname(e.target.value)}
                   className="flex p-2.5 rounded-md bg-white text-gray-800 border border-gray-500 hover:border-gray-700"
+                  required
                 />
               </div>
               <div className="flex flex-col gap-1">
@@ -59,6 +60,7 @@ const RegisterMentee = () => {
                   value={lname}
                   onChange={(e) => setLname(e.target.value)}
                   className="flex p-2.5 rounded-md bg-white text-gray-800 border border-gray-500 hover:border-gray-700"
+                  required
                 />
               </div>
               <div className="flex flex-col gap-1">
@@ -72,6 +74,7 @@ const RegisterMentee = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="flex p-2.5 rounded-md bg-white text-gray-800 border border-gray-500 hover:border-gray-700"
+                  required
                 />
               </div>
               <div className="flex flex-col gap-1">
@@ -85,6 +88,7 @@ const RegisterMentee = () => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   className="flex p-2.5 rounded-md bg-white text-gray-800 border border-gray-500 hover:border-gray-700"
+                  required
                 />
               </div>
               <div className="flex flex-col gap-1">
@@ -98,6 +102,7 @@ const RegisterMentee = () => {
                   value={status}
                   onChange={(e) => setStatus(e.target.value)}
                   className="flex p-2.5 rounded-md bg-white text-gray-800 border border-gray-500 hover:border-gray-700"
+                  required
                 />
               </div>
             </form>

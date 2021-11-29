@@ -69,6 +69,7 @@ const RegisterMentor = () => {
                     value={fname}
                     onChange={(e) => setFname(e.target.value)}
                     className="flex p-2.5 rounded-md bg-white text-gray-800 border border-gray-500 hover:border-gray-700"
+                    required
                   />
                 </div>
                 <div className="flex flex-col gap-1">
@@ -82,6 +83,7 @@ const RegisterMentor = () => {
                     value={lname}
                     onChange={(e) => setLname(e.target.value)}
                     className="flex p-2.5 rounded-md bg-white text-gray-800 border border-gray-500 hover:border-gray-700"
+                    required
                   />
                 </div>
                 <div className="flex flex-col gap-1">
@@ -95,6 +97,7 @@ const RegisterMentor = () => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     className="flex p-2.5 rounded-md bg-white text-gray-800 border border-gray-500 hover:border-gray-700"
+                    required
                   />
                 </div>
                 <div className="flex flex-col gap-1">
@@ -108,6 +111,7 @@ const RegisterMentor = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     className="flex p-2.5 rounded-md bg-white text-gray-800 border border-gray-500 hover:border-gray-700"
+                    required
                   />
                 </div>
               </form>
@@ -128,6 +132,7 @@ const RegisterMentor = () => {
                     value={alamat}
                     onChange={(e) => setAlamat(e.target.value)}
                     className="flex p-2.5 rounded-md bg-white text-gray-800 border border-gray-500 hover:border-gray-700"
+                    required
                   />
                 </div>
                 <div className="flex flex-col gap-1">
@@ -141,6 +146,7 @@ const RegisterMentor = () => {
                     value={pekerjaan}
                     onChange={(e) => setPekerjaan(e.target.value)}
                     className="flex p-2.5 rounded-md bg-white text-gray-800 border border-gray-500 hover:border-gray-700"
+                    required
                   />
                 </div>
                 <div className="flex flex-col gap-1">
@@ -153,13 +159,16 @@ const RegisterMentor = () => {
                     value={bidang}
                     onChange={(e) => setBidang(e.target.value)}
                     className="flex p-2.5 rounded-md bg-white text-gray-800 border border-gray-500 hover:border-gray-700"
+                    required
                   >
                     <option value="" disabled>
                       Pilih Kategori
                     </option>
                     <option value="1">Persiapan Karir</option>
-                    <option value="2">Pemrograman</option>
-                    <option value="3">Musik</option>
+                    <option value="2">Teknologi</option>
+                    <option value="3">Seni dan Musik</option>
+                    <option value="4">Perbankan</option>
+                    <option value="5">Hukum</option>
                   </select>
                 </div>
                 <div className="flex flex-col gap-1">
@@ -173,6 +182,7 @@ const RegisterMentor = () => {
                     value={pendidikan}
                     onChange={(e) => setPendidikan(e.target.value)}
                     className="flex p-2.5 rounded-md bg-white text-gray-800 border border-gray-500 hover:border-gray-700"
+                    required
                   />
                 </div>
               </form>
@@ -181,7 +191,7 @@ const RegisterMentor = () => {
 
           {page === 3 && (
             <div className="form w-5/6 mb-4">
-              <form className="grid grid-rows-3 gap-4">
+              <form className="grid grid-rows-5 gap-4">
                 {/* <div className="flex flex-col gap-10">
                   <label htmlFor="pekerjaan" className="title text-2xl">
                     Unggah Foto Anda
@@ -195,11 +205,13 @@ const RegisterMentor = () => {
                     Unggah
                   </button>
                 </div> */}
-                <div className="flex flex-col gap-1">
+                <div className="row-span-2 flex flex-col gap-1">
                   <label htmlFor="about" className="text-2xl">
                     Penjelasan Singkat Mengenai Diri Anda
                   </label>
-                  <label htmlFor="about">Contoh: Frontend Developer di Traveloka Id</label>
+                  <label htmlFor="about">
+                    Contoh: Frontend Developer di Traveloka Id
+                  </label>
                   <input
                     type="text"
                     id="about"
@@ -207,9 +219,10 @@ const RegisterMentor = () => {
                     value={about}
                     onChange={(e) => setAbout(e.target.value)}
                     className="flex p-2.5 rounded-md bg-white text-gray-800 border border-gray-500 hover:border-gray-700"
+                    required
                   />
                 </div>
-                <div className="flex flex-col gap-1">
+                <div className="row-span-2 flex flex-col gap-1">
                   <label htmlFor="rate" className="text-2xl">
                     Tarif (Rp/Pertemuan)
                   </label>
@@ -220,8 +233,16 @@ const RegisterMentor = () => {
                     value={rate}
                     onChange={(e) => setRate(e.target.value)}
                     className="flex p-2.5 rounded-md bg-white text-gray-800 border border-gray-500 hover:border-gray-700"
+                    required
                   />
                 </div>
+                <button
+                  className="flex justify-center w-full p-2.5 rounded-lg text-white text-2xl font-semibold bg-yellow-400 hover:bg-yellow-500 transition duration-500"
+                  type="submit"
+                  onClick={onSubmit}
+                >
+                  Daftar
+                </button>
               </form>
             </div>
           )}
@@ -233,7 +254,7 @@ const RegisterMentor = () => {
               Berikutnya
             </button>
           )}
-          {page === 3 && (
+          {/* {page === 3 && (
             <button
               className="flex justify-center w-5/6 p-2.5 rounded-lg text-white text-2xl font-semibold bg-yellow-400 hover:bg-yellow-500 transition duration-500"
               type="button"
@@ -241,7 +262,7 @@ const RegisterMentor = () => {
             >
               Daftar
             </button>
-          )}
+          )} */}
         </div>
         <img src={mentorImage} alt="" />
       </div>

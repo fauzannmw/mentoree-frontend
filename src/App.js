@@ -23,7 +23,7 @@ function App() {
             <Route exact path="/" component={Homepage} />
             <Route exact path="/explore" component={Explore} />
             <Route exact path="/about-us" component={About} />
-            <Route exact path="/mentor-detail" component={Mentor} />
+            <Route exact path="/mentor-detail/:id" component={Mentor} />
             <Route exact path="/login-gateaway" component={LoginGate} />
             <Route exact path="/register-gateaway" component={RegisterGate} />
             <Route exact path="/login-mentor" component={LoginMentor} />

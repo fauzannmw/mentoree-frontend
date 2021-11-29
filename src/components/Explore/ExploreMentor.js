@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useLoca } from "react";
 import "./Explore.scss";
 import { Link } from "react-router-dom";
 import mentorImage from "../../assets/image/mentor-image-1.png";
 import { MENTOR_GET_ALL, CATEGORY_GET_MENTOR } from "../../api";
 
 const ExploreMentor = () => {
-  const [category, setCategory] = useState([]);
+  const [category, setCategory] = useState("");
   const [mentors, setMentor] = useState([]);
   const [mentorsId, setMentorId] = useState();
 
@@ -14,6 +14,7 @@ const ExploreMentor = () => {
     console.log(req.data);
     setMentor(req.data.data);
     setMentorId(req.data.data.id_mentor);
+    // setMentorId(req.data.data.id);
   };
 
   const getMentorByCategory = async () => {
@@ -46,8 +47,10 @@ const ExploreMentor = () => {
               Pilih Kategori Subjek Untuk Mentor
             </option>
             <option value="1">Persiapan Karir</option>
-            <option value="2">Pemrograman</option>
-            <option value="3">Musik</option>
+            <option value="2">Teknologi</option>
+            <option value="3">Seni dan Musik</option>
+            <option value="4">Perbankan</option>
+            <option value="5">Hukum</option>
           </select>
         </div>
       </div>
@@ -55,7 +58,7 @@ const ExploreMentor = () => {
         {mentors &&
           mentors.map((mentor) => (
             <Link
-              to="/mentor-detail/${mentor.id_mentor}"
+              to={`/mentor-detail/${mentor.id_mentor}`}
               className=" md:w-60 h-72 md:h-80 p-2 bg-white rounded-xl shadow-lg hover:shadow-2xl transition duration-500"
             >
               {/* <Link className=" md:w-60 md:h-80 p-2 bg-white rounded-xl transform transition-all hover:-translate-y-2 duration-300 "> */}
@@ -69,6 +72,7 @@ const ExploreMentor = () => {
                   {mentor.nama_depan} {mentor.nama_belakang}
                 </h2>
                 <p className="text-sm text-gray-600">{mentor.latarBelakang}</p>
+                {/* <p className="text-sm text-gray-600">{mentor.latar_belakang}</p> */}
               </div>
             </Link>
           ))}
