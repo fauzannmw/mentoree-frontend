@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useLoca } from "react";
 import "./Explore.scss";
 import { Link } from "react-router-dom";
-import mentorImage from "../../assets/image/mentor-image-1.png";
+// import mentorImage from "../../assets/image/mentor-image-1.png";
+import mentorImage from "../../assets/image/mentor-image-1.jpeg";
 import { MENTOR_GET_ALL, CATEGORY_GET_MENTOR } from "../../api";
 
 const ExploreMentor = () => {
