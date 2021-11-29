@@ -1,7 +1,8 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import "./Mentor.scss";
-import profileImage from "../assets/image/profile-image-1.png";
+// import profileImage from "../assets/image/profile-image-1.png";
+import profileImage from "../assets/image/mentor-image-1.jpeg";
 
 const Mentor = () => {
   // function usePageViews() {

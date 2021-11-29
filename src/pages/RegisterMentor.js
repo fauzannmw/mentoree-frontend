@@ -236,13 +236,13 @@ const RegisterMentor = () => {
                     required
                   />
                 </div>
-                <button
+                {/* <button
                   className="flex justify-center w-full p-2.5 rounded-lg text-white text-2xl font-semibold bg-yellow-400 hover:bg-yellow-500 transition duration-500"
                   type="submit"
                   onClick={onSubmit}
                 >
                   Daftar
-                </button>
+                </button> */}
               </form>
             </div>
           )}
@@ -254,7 +254,7 @@ const RegisterMentor = () => {
               Berikutnya
             </button>
           )}
-          {/* {page === 3 && (
+          {page === 3 && (
             <button
               className="flex justify-center w-5/6 p-2.5 rounded-lg text-white text-2xl font-semibold bg-yellow-400 hover:bg-yellow-500 transition duration-500"
               type="button"
@@ -262,7 +262,7 @@ const RegisterMentor = () => {
             >
               Daftar
             </button>
-          )} */}
+          )}
         </div>
         <img src={mentorImage} alt="" />
       </div>
