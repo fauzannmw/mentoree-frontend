@@ -3,8 +3,10 @@
 
 .mentor {
   .title {
-    color: $biru-tua;
     font-family: "MuktaVaani-SemiBold";
+    p {
+      color: $biru-tua;
+    }
   }
 }
 

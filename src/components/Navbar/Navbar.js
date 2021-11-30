@@ -13,6 +13,7 @@ const Navbar = () => {
       setMobile(true);
     }
   }
+  
   useEffect(() => {
     const checkLocalStorage = () => {
       if (localStorage.getItem("token") === null) {
