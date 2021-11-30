@@ -16,7 +16,8 @@ const Login = (props) => {
     roleImage = menteeImage;
   }
 
-  async function onSubmit() {
+  async function onSubmit(e) {
+    e.preventDefault();
     if (props.role === "Mentor") {
       var req = "";
       req = await MENTOR_LOGIN(email, password);
@@ -44,8 +45,8 @@ const Login = (props) => {
           </div>
 
           <div className="form w-5/6 ">
-            <form className="grid grid-rows-2 gap-4">
-              <div className="flex flex-col">
+            <form onSubmit={onSubmit} className="grid grid-rows-5 gap-2">
+              <div className="row-span-2 flex flex-col">
                 <label htmlFor="email" className="text-2xl">
                   Email
                 </label>
@@ -56,9 +57,10 @@ const Login = (props) => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="flex p-2.5 rounded-md bg-white text-gray-800  border border-gray-500 "
+                  required
                 />
               </div>
-              <div className="flex flex-col">
+              <div className="row-span-2 flex flex-col">
                 <label htmlFor="password" className="text-2xl">
                   Password
                 </label>
@@ -69,18 +71,18 @@ const Login = (props) => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   className="flex p-2.5 rounded-md bg-white text-gray-800  border border-gray-500 focus:border-transparent "
+                  required
                 />
               </div>
+              <button
+                className="row-span-1 flex justify-center w-full p-2.5 rounded-lg text-white text-2xl font-semibold bg-yellow-400 hover:bg-yellow-500 transition duration-500"
+                type="submit"
+                // onClick={onSubmit}
+              >
+                Masuk
+              </button>
             </form>
           </div>
-
-          <button
-            className="flex justify-center w-5/6 p-2.5 rounded-lg text-white text-2xl font-semibold bg-yellow-400 hover:bg-yellow-500 transition duration-500"
-            type="button"
-            onClick={onSubmit}
-          >
-            Masuk
-          </button>
         </div>
       </div>
       <div className="flex flex-row space-x-2 justify-center px-6 py-12 text-lg">

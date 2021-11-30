@@ -18,14 +18,16 @@ const RegisterMentor = () => {
   const [about, setAbout] = useState("");
   const [rate, setRate] = useState("");
 
-  function goNextPage() {
+  function goNextPage(e) {
+    e.preventDefault();
     if (page === 3) {
       return;
     }
     setPage((page) => page + 1);
   }
 
-  async function onSubmit() {
+  async function onSubmit(e) {
+    e.preventDefault();
     const req = await MENTOR_REGISTER(
       fname,
       lname,
@@ -57,7 +59,7 @@ const RegisterMentor = () => {
 
           {page === 1 && (
             <div className="form w-5/6">
-              <form className="grid grid-rows-3 gap-4">
+              <form onSubmit={goNextPage} className="grid grid-rows-3 gap-4">
                 <div className="flex flex-col gap-1">
                   <label htmlFor="fname" className="text-2xl">
                     Nama Depan
@@ -114,13 +116,20 @@ const RegisterMentor = () => {
                     required
                   />
                 </div>
+                <button
+                  type="submit"
+                  className="flex justify-center w-full p-2.5 rounded-lg text-white text-2xl font-semibold bg-yellow-400 hover:bg-yellow-500 transition duration-500"
+                  // onClick={goNextPage}
+                >
+                  Berikutnya
+                </button>
               </form>
             </div>
           )}
 
           {page === 2 && (
             <div className="form w-5/6">
-              <form className="grid grid-rows-3 gap-4">
+              <form onSubmit={goNextPage} className="grid grid-rows-3 gap-4">
                 <div className="flex flex-col gap-1">
                   <label htmlFor="alamat" className="text-2xl">
                     Alamat
@@ -185,13 +194,20 @@ const RegisterMentor = () => {
                     required
                   />
                 </div>
+                <button
+                  type="submit"
+                  className="flex justify-center w-full p-2.5 rounded-lg text-white text-2xl font-semibold bg-yellow-400 hover:bg-yellow-500 transition duration-500"
+                  // onClick={goNextPage}
+                >
+                  Berikutnya
+                </button>
               </form>
             </div>
           )}
 
           {page === 3 && (
             <div className="form w-5/6 mb-4">
-              <form className="grid grid-rows-5 gap-4">
+              <form onSubmit={onSubmit} className="grid grid-rows-5 gap-4">
                 {/* <div className="flex flex-col gap-10">
                   <label htmlFor="pekerjaan" className="title text-2xl">
                     Unggah Foto Anda
@@ -236,17 +252,17 @@ const RegisterMentor = () => {
                     required
                   />
                 </div>
-                {/* <button
-                  className="flex justify-center w-full p-2.5 rounded-lg text-white text-2xl font-semibold bg-yellow-400 hover:bg-yellow-500 transition duration-500"
+                <button
                   type="submit"
-                  onClick={onSubmit}
+                  className="flex justify-center w-full p-2.5 rounded-lg text-white text-2xl font-semibold bg-yellow-400 hover:bg-yellow-500 transition duration-500"
+                  // onClick={goNextPage}
                 >
                   Daftar
-                </button> */}
+                </button>
               </form>
             </div>
           )}
-          {page !== 3 && (
+          {/* {page !== 3 && (
             <button
               className="flex justify-center w-5/6 p-2.5 rounded-lg text-white text-2xl font-semibold bg-yellow-400 hover:bg-yellow-500 transition duration-500"
               onClick={goNextPage}
@@ -262,7 +278,7 @@ const RegisterMentor = () => {
             >
               Daftar
             </button>
-          )}
+          )} */}
         </div>
         <img src={mentorImage} alt="" />
       </div>

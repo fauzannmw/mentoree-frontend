@@ -12,7 +12,8 @@ const RegisterMentee = () => {
   const [password, setPassword] = useState("");
   const [status, setStatus] = useState("");
 
-  async function onSubmit() {
+  async function onSubmit(e) {
+    e.preventDefault();
     const req = await MENTEE_REGISTER(fname, lname, email, password, status);
     console.log(req);
     const token = req.data.data.token;
@@ -34,7 +35,7 @@ const RegisterMentee = () => {
           </div>
 
           <div className="form w-5/6 md:mb-4">
-            <form className="grid grid-rows-5 gap-4">
+            <form onSubmit={onSubmit} className="grid grid-rows-5 gap-4">
               <div className="flex flex-col gap-1">
                 <label htmlFor="fname" className="text-2xl">
                   Nama Depan
@@ -105,16 +106,14 @@ const RegisterMentee = () => {
                   required
                 />
               </div>
+              <button
+                className="flex justify-center w-full p-2.5 rounded-lg text-white text-2xl font-semibold bg-yellow-400 hover:bg-yellow-500 transition duration-500"
+                type="submit"
+              >
+                Daftar
+              </button>
             </form>
           </div>
-
-          <button
-            className="flex justify-center w-5/6 p-2.5 rounded-lg text-white text-2xl font-semibold bg-yellow-400 hover:bg-yellow-500 transition duration-500"
-            type="button"
-            onClick={onSubmit}
-          >
-            Daftar
-          </button>
         </div>
         <img src={menteeImage} alt="" />
       </div>
