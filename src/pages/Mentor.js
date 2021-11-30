@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "./Mentor.scss";
 // import profileImage from "../assets/image/profile-image-1.png";
 import profileImage from "../assets/image/mentor-image-1.jpeg";
@@ -57,8 +57,8 @@ const Mentor = () => {
               <p className="col-span-3">{mentor.pendidikan}</p>
             </div>
             <div className="grid grid-cols-5">
-              <h6 className="col-span-2 text-gray-500">Pendidikan</h6>
-              <p className="col-span-3">{mentor.pendidikan}</p>
+              <h6 className="col-span-2 text-gray-500">Deskripsi</h6>
+              <p className="col-span-3">{mentor.latarBelakang}</p>
             </div>
           </div>
         </div>
@@ -68,9 +68,12 @@ const Mentor = () => {
           </h1>
           <p className="text-lg">Rp.{mentor.tarif}/pertemuan</p>
           {IsloggedIn && (
-            <button className="row-span-2 flex justify-center p-2 rounded text-white bg-blue-500 hover:bg-blue-400 transition duration-500">
+            <Link
+              to="/success"
+              className="row-span-2 flex justify-center p-2 rounded text-white bg-blue-500 hover:bg-blue-400 transition duration-500"
+            >
               Pesan Sekarang
-            </button>
+            </Link>
           )}
         </div>
       </div>

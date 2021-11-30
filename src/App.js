@@ -12,6 +12,7 @@ import { AuthProvider } from "./hooks/useAuth";
 import Explore from "./pages/Explore";
 import About from "./pages/About";
 import Mentor from "./pages/Mentor";
+import Success from "./pages/Success";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <Route exact path="/explore" component={Explore} />
             <Route exact path="/about-us" component={About} />
             <Route exact path="/mentor-detail/:id" component={Mentor} />
+            <Route exact path="/success" component={Success} />
             <Route exact path="/login-gateaway" component={LoginGate} />
             <Route exact path="/register-gateaway" component={RegisterGate} />
             <Route exact path="/login-mentor" component={LoginMentor} />
