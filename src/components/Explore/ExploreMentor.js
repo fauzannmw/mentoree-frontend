@@ -69,10 +69,11 @@ const ExploreMentor = () => {
                 className="object-cover rounded-xl"
               />
               <div className="p-2">
-                <h2 className="font-bold text-lg">
-                  {mentor.nama_depan} {mentor.nama_belakang}
-                </h2>
-                <p className="text-sm text-gray-600">{mentor.latarBelakang}</p>
+                <h2 className="font-bold text-lg">{mentor.nama}</h2>
+                <p className="text-sm text-gray-600">{mentor.deskripsi}</p>
+                <p className="font-bold text-sm text-red-400">
+                  Rp {mentor.tarif}/pertemuan
+                </p>
                 {/* <p className="text-sm text-gray-600">{mentor.latar_belakang}</p> */}
               </div>
             </Link>

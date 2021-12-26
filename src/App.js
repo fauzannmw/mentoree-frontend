@@ -13,26 +13,33 @@ import Explore from "./pages/Explore";
 import About from "./pages/About";
 import Mentor from "./pages/Mentor";
 import Success from "./pages/Success";
+import { UserContext } from "./hooks/userContext";
+import { useMemo, useState } from "react";
 
 function App() {
+  const [user, setUser] = useState(null);
+  const providerValue = useMemo(() => ({ user, setUser }), [user, setUser]);
+
   return (
     <AuthProvider>
       <Router>
         <div className="App min-h-screen bg-gray-100">
           <Navbar />
-          <Switch>
-            <Route exact path="/" component={Homepage} />
-            <Route exact path="/explore" component={Explore} />
-            <Route exact path="/about-us" component={About} />
-            <Route exact path="/mentor-detail/:id" component={Mentor} />
-            <Route exact path="/success" component={Success} />
-            <Route exact path="/login-gateaway" component={LoginGate} />
-            <Route exact path="/register-gateaway" component={RegisterGate} />
-            <Route exact path="/login-mentor" component={LoginMentor} />
-            <Route exact path="/login-mentee" component={LoginMentee} />
-            <Route exact path="/register-mentor" component={RegisterMentor} />
-            <Route exact path="/register-mentee" component={RegisterMentee} />
-          </Switch>
+          <UserContext.Provider value={providerValue}>
+            <Switch>
+              <Route exact path="/" component={Homepage} />
+              <Route exact path="/explore" component={Explore} />
+              <Route exact path="/about-us" component={About} />
+              <Route exact path="/mentor-detail/:id" component={Mentor} />
+              <Route exact path="/success" component={Success} />
+              <Route exact path="/login-gateaway" component={LoginGate} />
+              <Route exact path="/register-gateaway" component={RegisterGate} />
+              <Route exact path="/login-mentor" component={LoginMentor} />
+              <Route exact path="/login-mentee" component={LoginMentee} />
+              <Route exact path="/register-mentor" component={RegisterMentor} />
+              <Route exact path="/register-mentee" component={RegisterMentee} />
+            </Switch>
+          </UserContext.Provider>
         </div>
       </Router>
     </AuthProvider>

@@ -7,12 +7,11 @@ import { MENTOR_REGISTER } from "../api";
 
 const RegisterMentor = () => {
   const [page, setPage] = useState(1);
-  const [fname, setFname] = useState("");
-  const [lname, setLname] = useState("");
+  const [nama, setNama] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [alamat, setAlamat] = useState("");
-  const [pekerjaan, setPekerjaan] = useState("");
+  const [deskripsi, setDeskripsi] = useState("");
   const [bidang, setBidang] = useState("");
   const [pendidikan, setPendidikan] = useState("");
   const [about, setAbout] = useState("");
@@ -29,12 +28,11 @@ const RegisterMentor = () => {
   async function onSubmit(e) {
     e.preventDefault();
     const req = await MENTOR_REGISTER(
-      fname,
-      lname,
+      nama,
       email,
       password,
       alamat,
-      pekerjaan,
+      deskripsi,
       bidang,
       about,
       rate,
@@ -61,29 +59,15 @@ const RegisterMentor = () => {
             <div className="form w-5/6">
               <form onSubmit={goNextPage} className="grid grid-rows-3 gap-4">
                 <div className="flex flex-col gap-1">
-                  <label htmlFor="fname" className="text-2xl">
-                    Nama Depan
+                  <label htmlFor="nama" className="text-2xl">
+                    Nama Lengkap
                   </label>
                   <input
                     type="text"
-                    id="fname"
-                    name="fname"
-                    value={fname}
-                    onChange={(e) => setFname(e.target.value)}
-                    className="flex p-2.5 rounded-md bg-white text-gray-800 border border-gray-500 hover:border-gray-700"
-                    required
-                  />
-                </div>
-                <div className="flex flex-col gap-1">
-                  <label htmlFor="lname" className="text-2xl">
-                    Nama Belakang
-                  </label>
-                  <input
-                    type="text"
-                    id="lname"
-                    name="lname"
-                    value={lname}
-                    onChange={(e) => setLname(e.target.value)}
+                    id="nama"
+                    name="nama"
+                    value={nama}
+                    onChange={(e) => setNama(e.target.value)}
                     className="flex p-2.5 rounded-md bg-white text-gray-800 border border-gray-500 hover:border-gray-700"
                     required
                   />
@@ -119,7 +103,6 @@ const RegisterMentor = () => {
                 <button
                   type="submit"
                   className="flex justify-center w-full p-2.5 rounded-lg text-white text-2xl font-semibold bg-yellow-400 hover:bg-yellow-500 transition duration-500"
-                  // onClick={goNextPage}
                 >
                   Berikutnya
                 </button>
@@ -129,7 +112,7 @@ const RegisterMentor = () => {
 
           {page === 2 && (
             <div className="form w-5/6">
-              <form onSubmit={goNextPage} className="grid grid-rows-3 gap-4">
+              <form onSubmit={goNextPage} className="grid gap-4">
                 <div className="flex flex-col gap-1">
                   <label htmlFor="alamat" className="text-2xl">
                     Alamat
@@ -144,23 +127,26 @@ const RegisterMentor = () => {
                     required
                   />
                 </div>
-                <div className="flex flex-col gap-1">
-                  <label htmlFor="pekerjaan" className="text-2xl">
-                    Pekerjaan
+                <div className="row-span-2 flex flex-col gap-1">
+                  <label htmlFor="deskripsi" className="text-2xl">
+                    Deskripsi singkat diri Anda
+                  </label>
+                  <label htmlFor="deskripsi">
+                    Contoh: Frontend Developer di Traveloka Id
                   </label>
                   <input
                     type="text"
-                    id="pekerjaan"
-                    name="pekerjaan"
-                    value={pekerjaan}
-                    onChange={(e) => setPekerjaan(e.target.value)}
+                    id="deskripsi"
+                    name="deskripsi"
+                    value={deskripsi}
+                    onChange={(e) => setDeskripsi(e.target.value)}
                     className="flex p-2.5 rounded-md bg-white text-gray-800 border border-gray-500 hover:border-gray-700"
                     required
                   />
                 </div>
                 <div className="flex flex-col gap-1">
                   <label htmlFor="bidang" className="text-2xl">
-                    Bidang
+                    Bidang Keahlian
                   </label>
                   <select
                     id="bidang"
@@ -197,7 +183,6 @@ const RegisterMentor = () => {
                 <button
                   type="submit"
                   className="flex justify-center w-full p-2.5 rounded-lg text-white text-2xl font-semibold bg-yellow-400 hover:bg-yellow-500 transition duration-500"
-                  // onClick={goNextPage}
                 >
                   Berikutnya
                 </button>
@@ -207,36 +192,21 @@ const RegisterMentor = () => {
 
           {page === 3 && (
             <div className="form w-5/6 mb-4">
-              <form onSubmit={onSubmit} className="grid grid-rows-5 gap-4">
-                {/* <div className="flex flex-col gap-10">
-                  <label htmlFor="pekerjaan" className="title text-2xl">
-                    Unggah Foto Anda
-                  </label>
-                  <img
-                    src={profileImage}
-                    alt=""
-                    className="w-2/5 place-self-center"
-                  />
-                  <button className="flex justify-center place-self-center w-full py-2.5 rounded-lg text-white text-2xl font-semibold bg-blue-500 hover:bg-blue-600 transition duration-500">
-                    Unggah
-                  </button>
-                </div> */}
+              <form onSubmit={onSubmit} className="grid  gap-4">
                 <div className="row-span-2 flex flex-col gap-1">
                   <label htmlFor="about" className="text-2xl">
-                    Penjelasan Singkat Mengenai Diri Anda
+                    Ceritakan mengenai diri Anda
                   </label>
-                  <label htmlFor="about">
-                    Contoh: Frontend Developer di Traveloka Id
-                  </label>
-                  <input
-                    type="text"
-                    id="about"
+                  <textarea
                     name="about"
+                    id="about"
                     value={about}
+                    cols="30"
+                    rows="8"
                     onChange={(e) => setAbout(e.target.value)}
                     className="flex p-2.5 rounded-md bg-white text-gray-800 border border-gray-500 hover:border-gray-700"
                     required
-                  />
+                  ></textarea>
                 </div>
                 <div className="row-span-2 flex flex-col gap-1">
                   <label htmlFor="rate" className="text-2xl">
@@ -255,7 +225,6 @@ const RegisterMentor = () => {
                 <button
                   type="submit"
                   className="flex justify-center w-full p-2.5 rounded-lg text-white text-2xl font-semibold bg-yellow-400 hover:bg-yellow-500 transition duration-500"
-                  // onClick={goNextPage}
                 >
                   Daftar
                 </button>

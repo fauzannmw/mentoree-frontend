@@ -13,8 +13,8 @@ const Mentor = () => {
 
   const getMentorDetail = async () => {
     const req = await MENTOR_GET_DETAIL(id);
-    console.log(req.data);
-    setMentor(req.data.data);
+    console.log(req.data.data[0]);
+    setMentor(req.data.data[0]);
   };
 
   useEffect(() => {
@@ -41,7 +41,7 @@ const Mentor = () => {
         </div>
         <div className="grid gap-3 col-span-5 md:w-2/5">
           <h1 className="title text-2xl col-span-2">
-            {mentor.nama_depan} {mentor.nama_belakang}
+            {mentor.nama}
           </h1>
           <div className="title text-lg">
             <div className="grid grid-cols-5">
@@ -49,8 +49,8 @@ const Mentor = () => {
               <p className="col-span-3">{mentor.alamat}</p>
             </div>
             <div className="grid grid-cols-5">
-              <h6 className="col-span-2 text-gray-500">Pekerjaan</h6>
-              <p className="col-span-3">{mentor.pekerjaan}</p>
+              <h6 className="col-span-2 text-gray-500">Kategori</h6>
+              <p className="col-span-3">{mentor.kategori}</p>
             </div>
             <div className="grid grid-cols-5">
               <h6 className="col-span-2 text-gray-500">Pendidikan</h6>
@@ -58,13 +58,13 @@ const Mentor = () => {
             </div>
             <div className="grid grid-cols-5">
               <h6 className="col-span-2 text-gray-500">Deskripsi</h6>
-              <p className="col-span-3">{mentor.latarBelakang}</p>
+              <p className="col-span-3">{mentor.deskripsi}</p>
             </div>
           </div>
         </div>
         <div className="title grid grid-row-4 w-5/6 gap-2 col-span-1">
           <h1 className="grid grid-cols-4 justify-end items-center text-xl text-yellow-400">
-            <img src={star} alt="" className="" /> 5.0
+            <img src={star} alt="" className="w-2/3" /> 5.0
           </h1>
           <p className="text-lg">Rp.{mentor.tarif}/pertemuan</p>
           {IsloggedIn && (

@@ -6,15 +6,14 @@ import useAuth from "../hooks/useAuth";
 import { MENTEE_REGISTER } from "../api";
 
 const RegisterMentee = () => {
-  const [fname, setFname] = useState("");
-  const [lname, setLname] = useState("");
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [status, setStatus] = useState("");
 
   async function onSubmit(e) {
     e.preventDefault();
-    const req = await MENTEE_REGISTER(fname, lname, email, password, status);
+    const req = await MENTEE_REGISTER(name, email, password, status);
     console.log(req);
     const token = req.data.data.token;
     localStorage.setItem("token", token);
@@ -35,31 +34,17 @@ const RegisterMentee = () => {
           </div>
 
           <div className="form w-5/6 md:mb-4">
-            <form onSubmit={onSubmit} className="grid grid-rows-5 gap-4">
+            <form onSubmit={onSubmit} className="grid grid-rows-4 gap-4">
               <div className="flex flex-col gap-1">
-                <label htmlFor="fname" className="text-2xl">
-                  Nama Depan
+                <label htmlFor="name" className="text-2xl">
+                  Nama Lengkap
                 </label>
                 <input
                   type="text"
-                  id="fname"
-                  name="fname"
-                  value={fname}
-                  onChange={(e) => setFname(e.target.value)}
-                  className="flex p-2.5 rounded-md bg-white text-gray-800 border border-gray-500 hover:border-gray-700"
-                  required
-                />
-              </div>
-              <div className="flex flex-col gap-1">
-                <label htmlFor="lname" className="text-2xl">
-                  Nama Belakang
-                </label>
-                <input
-                  type="text"
-                  id="lname"
-                  name="lname"
-                  value={lname}
-                  onChange={(e) => setLname(e.target.value)}
+                  id="name"
+                  name="name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                   className="flex p-2.5 rounded-md bg-white text-gray-800 border border-gray-500 hover:border-gray-700"
                   required
                 />
