@@ -6,7 +6,7 @@ import mentorImage from "../../assets/image/mentor-image-1.jpeg";
 import { MENTOR_GET_ALL, CATEGORY_GET_MENTOR } from "../../api";
 
 const ExploreMentor = () => {
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState();
   const [mentors, setMentor] = useState([]);
   const [mentorsId, setMentorId] = useState();
 
