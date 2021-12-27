@@ -21,6 +21,7 @@ const ExploreMentor = () => {
   const getMentorByCategory = async () => {
     const req = await CATEGORY_GET_MENTOR(category);
     console.log(req.data);
+    console.log(req.message);
     setMentor(req.data.data);
   };
 
@@ -41,7 +42,7 @@ const ExploreMentor = () => {
             id="bidang"
             name="bidang"
             value={category}
-            onChange={(e) => setCategory(e.target.value)}
+            onChange={(e) => setCategory(parseInt(e.target.value))}
             className="flex rounded-md bg-white text-gray-800 border border-transparent"
           >
             <option value="" disabled>

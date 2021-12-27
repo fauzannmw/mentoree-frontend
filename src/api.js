@@ -45,7 +45,7 @@ export const MENTOR_LOGIN = (email, password) =>
     password: password,
   });
 
-export const CATEGORY_GET_ALL = () => axios.get(BASE_URL + "/bidang");
+export const CATEGORY_GET_ALL = () => axios.get(BASE_URL + "/subject");
 
 export const CATEGORY_GET_MENTOR = (categoryId) =>
   axios.get(BASE_URL + "/subject/mentor/" + categoryId);
