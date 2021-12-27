@@ -22,6 +22,17 @@ const RegisterMentor = () => {
     if (page === 3) {
       return;
     }
+    console.log(
+      nama,
+      email,
+      password,
+      alamat,
+      deskripsi,
+      bidang,
+      about,
+      rate,
+      pendidikan
+    );
     setPage((page) => page + 1);
   }
 
@@ -38,6 +49,7 @@ const RegisterMentor = () => {
       rate,
       pendidikan
     );
+
     console.log(req);
     const token = req.data.data.token;
     localStorage.setItem("token", token);
