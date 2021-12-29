@@ -34,35 +34,29 @@ const Mentor = () => {
   }, []);
 
   return (
-    <div className="mentor py-24 px-48">
-      <div className="grid grid-cols-7 gap-4 items-center bg-white p-12 rounded-xl shadow-lg hover:shadow-xl transition duration-500">
-        <div className="col-span-1">
+    <div className="mentor p-4 md:py-24 md:px-36">
+      <div className="grid md:grid-cols-7 gap-4 items-center bg-white py-10 px-6 md:p-12 rounded-xl shadow-lg hover:shadow-xl transition duration-500">
+        <div className="hidden md:flex col-span-1">
           <img src={profileImage} className="rounded-full" alt="" />
         </div>
-        <div className="grid gap-3 col-span-5 md:w-2/5">
-          <h1 className="title text-2xl col-span-2">
-            {mentor.nama}
-          </h1>
+        <div className="grid gap-3 col-span-5 md:w-2/5 capitalize">
+          <h1 className="title text-2xl col-span-2">{mentor.nama}</h1>
           <div className="title text-lg">
-            <div className="grid grid-cols-5">
+            <div className="grid grid-cols-8 gap-5 md:gap-14">
               <h6 className="col-span-2 text-gray-500">Lokasi</h6>
-              <p className="col-span-3">{mentor.alamat}</p>
+              <p className="col-span-6">{mentor.alamat}</p>
             </div>
-            <div className="grid grid-cols-5">
+            <div className="grid grid-cols-8 gap-5 md:gap-14">
               <h6 className="col-span-2 text-gray-500">Kategori</h6>
-              <p className="col-span-3">{mentor.kategori}</p>
+              <p className="col-span-6">{mentor.kategori}</p>
             </div>
-            <div className="grid grid-cols-5">
-              <h6 className="col-span-2 text-gray-500">Pendidikan</h6>
-              <p className="col-span-3">{mentor.pendidikan}</p>
-            </div>
-            <div className="grid grid-cols-5">
+            <div className="grid grid-cols-8 gap-5 md:gap-14">
               <h6 className="col-span-2 text-gray-500">Deskripsi</h6>
-              <p className="col-span-3">{mentor.deskripsi}</p>
+              <p className="col-span-6">{mentor.deskripsi}</p>
             </div>
           </div>
         </div>
-        <div className="title grid grid-row-4 w-5/6 gap-2 col-span-1">
+        <div className=" title md:grid grid-row-4 w-5/6 gap-2 col-span-1">
           <h1 className="grid grid-cols-4 justify-end items-center text-xl text-yellow-400">
             <img src={star} alt="" className="w-2/3" /> 5.0
           </h1>

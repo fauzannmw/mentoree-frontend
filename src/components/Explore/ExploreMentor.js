@@ -12,7 +12,7 @@ const ExploreMentor = () => {
 
   const getAllMentor = async () => {
     const req = await MENTOR_GET_ALL();
-    console.log(req.data);
+    console.log(req.data); 
     setMentor(req.data.data);
     setMentorId(req.data.data.id_mentor);
     // setMentorId(req.data.data.id);
@@ -61,7 +61,7 @@ const ExploreMentor = () => {
           mentors.map((mentor) => (
             <Link
               to={`/mentor-detail/${mentor.id_mentor}`}
-              className=" md:w-60 h-72 md:h-80 p-2 bg-white rounded-xl shadow-lg hover:shadow-2xl transition duration-500"
+              className=" md:w-60 h-72 md:h-full p-2 capitalize bg-white rounded-xl shadow-lg hover:shadow-2xl transition duration-500"
             >
               {/* <Link className=" md:w-60 md:h-80 p-2 bg-white rounded-xl transform transition-all hover:-translate-y-2 duration-300 "> */}
               <img

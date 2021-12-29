@@ -12,7 +12,7 @@ const Content = (props) => {
           <div className="hidden xl:flex grid justify-start">
             <img src={illustrationSuccess} alt="" />
           </div>
-          <div className="md:p-40 md:w-5/6 col-span-2">
+          <div className="p-10 md:p-40 md:w-5/6 col-span-2">
             <h1 className="title">Selamat Pembayaran Anda Berhasil</h1>
             <h5 className="subtitle md:py-4">
               Silahkan menghubungi Mentor melalui kontak yang telah kami berikan

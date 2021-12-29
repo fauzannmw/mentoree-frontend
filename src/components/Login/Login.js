@@ -33,11 +33,11 @@ const Login = (props) => {
 
   return (
     <div className="login grid grid-rows-5 justify-center md:p-24">
-      <div className="grid grid-cols-2 row-span-4 px-6 py-20 space-x-12 rounded-xl bg-white shadow-lg hover:shadow-xl transition duration-300">
-        <img src={roleImage} alt="" className="" />
+      <div className="grid grid-cols-2 row-span-4 md:px-6 py-20 md:space-x-12 rounded-xl bg-white shadow-lg hover:shadow-xl transition duration-300">
+        <img src={roleImage} alt="" className="hidden md:flex" />
 
-        <div className="flex flex-col  justify-between">
-          <div className="title w-5/6">
+        <div className="flex flex-col justify-between">
+          <div className="title md:w-5/6">
             <h1 className="text-3xl">Masuk Sebagai {props.role}</h1>
             <h5 className="text-2xl">
               Silahkan isi data-data dibawah dengan benar.
