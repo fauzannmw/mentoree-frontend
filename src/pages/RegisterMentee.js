@@ -15,8 +15,8 @@ const RegisterMentee = () => {
     e.preventDefault();
     const req = await MENTEE_REGISTER(name, email, password, status);
     console.log(req);
-    // const token = req.data.data.token;
-    // localStorage.setItem("token", token);
+    const token = req.data.data.token;
+    localStorage.setItem("token", token);
     window.location.href = "/verification";
   }
   // const { register } = useAuth();
