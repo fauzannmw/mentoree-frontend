@@ -33,6 +33,9 @@ export const MENTOR_REGISTER = (
     pendidikan: pendidikan,
   });
 
+export const MENTEE_VERIFIKASI = (kode) =>
+  axios.post(BASE_URL + "/mentee/register/" + kode);
+
 export const MENTEE_LOGIN = (email, password) =>
   axios.post(BASE_URL + "/mentee/login", {
     email: email,

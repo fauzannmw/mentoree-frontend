@@ -15,6 +15,7 @@ import Mentor from "./pages/Mentor";
 import Success from "./pages/Success";
 import { UserContext } from "./hooks/userContext";
 import { useMemo, useState } from "react";
+import Verification from "./pages/Verification";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -38,6 +39,7 @@ function App() {
               <Route exact path="/login-mentee" component={LoginMentee} />
               <Route exact path="/register-mentor" component={RegisterMentor} />
               <Route exact path="/register-mentee" component={RegisterMentee} />
+              <Route exact path="/verification" component={Verification} />
             </Switch>
           </UserContext.Provider>
         </div>
