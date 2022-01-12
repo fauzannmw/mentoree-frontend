@@ -3,12 +3,16 @@ import axios from "axios";
 const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 export const MENTEE_REGISTER = (name, email, password, status) =>
-  axios.post(BASE_URL + "/mentee/register", {
-    nama: name,
-    email: email,
-    password: password,
-    status: status,
-  });
+  axios
+    .post(BASE_URL + "/mentee/register", {
+      nama: name,
+      email: email,
+      password: password,
+      status: status,
+    })
+    .catch((error) => {
+      return error.response;
+    });
 
 export const MENTOR_REGISTER = (
   nama,
@@ -33,10 +37,24 @@ export const MENTOR_REGISTER = (
     pendidikan: pendidikan,
   });
 
-export const MENTEE_VERIFIKASI = (kode) =>
-  axios.post(BASE_URL + "/mentee/register/kode", {
-    kode: kode,
-  });
+export const MENTEE_VERIFIKASI = (kode, tokenLama) =>
+  axios
+    .create({
+      baseURL: BASE_URL,
+      headers: {
+        Authorization: `Bearer ${tokenLama}`,
+      },
+    })
+    .post("/mentee/register/kode", {
+      kode: kode,
+    })
+    .catch((error) => {
+      return error.response;
+    });
+
+// axios.post(BASE_URL + "/mentee/register/kode", {
+//   kode: kode,
+// });
 
 export const MENTEE_LOGIN = (email, password) =>
   axios.post(BASE_URL + "/mentee/login", {

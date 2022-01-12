@@ -15,9 +15,14 @@ const RegisterMentee = () => {
     e.preventDefault();
     const req = await MENTEE_REGISTER(name, email, password, status);
     console.log(req);
-    const token = req.data.data.token;
-    localStorage.setItem("token", token);
-    window.location.href = "/verification";
+    if (req.data.success) {
+      const token = req.data.data.token;
+      localStorage.setItem("token", token);
+      window.location.href = "/verification";
+    } else {
+      console.log(req.data.message);
+      alert("Email sudah digunakan");
+    }
   }
   // const { register } = useAuth();
   // register();

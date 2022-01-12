@@ -6,10 +6,16 @@ const Verification = () => {
 
   async function onSubmit(e) {
     e.preventDefault();
-    const req = await MENTEE_VERIFIKASI(kode);
-    const token = req.data.data.token;
-    localStorage.setItem("token", token);
-    window.location.href = "/";
+    const tokenLama = localStorage.getItem("token");
+    const req = await MENTEE_VERIFIKASI(kode, tokenLama);
+    if (req.data.success) {
+      const token = req.data.data.token;
+      localStorage.setItem("token", token);
+      window.location.href = "/";
+    } else {
+      console.log(req.data.message);
+      alert("Kode yang diinputkan salah");
+    }
   }
 
   return (
