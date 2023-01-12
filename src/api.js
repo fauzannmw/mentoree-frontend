@@ -78,5 +78,7 @@ export const MENTOR_GET_ALL = () => axios.get(BASE_URL + "/mentor");
 export const MENTOR_GET_DETAIL = (userId) =>
   axios.get(BASE_URL + "/mentor/" + userId);
 
-export const MENTEE_GET_USER = (userId) =>
-  axios.get(BASE_URL + "/users" + userId);
+export const MENTEE_GET_ALL = () => axios.get(BASE_URL + "/mentee");
+
+export const MENTEE_GET_DETAIL = (userId) =>
+  axios.get(BASE_URL + "/mentee/" + userId);

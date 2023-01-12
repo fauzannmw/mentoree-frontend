@@ -2,19 +2,21 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import "./Mentor.scss";
 import profileImage from "../assets/image/mentor-image-1.jpeg";
-import star from "../assets/icon/star.png";
-import { MENTOR_GET_DETAIL } from "../api";
+import { MENTOR_GET_DETAIL, MENTEE_GET_DETAIL, MENTEE_GET_ALL } from "../api";
 
-const Mentor = () => {
+const Profile = () => {
   const [mentor, setMentor] = useState({});
-  const { id } = useParams();
+  const [mentee, setMentee] = useState({});
   const [IsloggedIn, setIsLoggedIn] = useState(false);
-  const role = localStorage.getItem("id_mentee");
+  // const id = localStorage.getItem("id");
+  var id = "";
 
-  let IDR = new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "IDR",
-  });
+  if (localStorage.getItem("id_mentor")) {
+    id = localStorage.getItem("id_mentor");
+  } else {
+    id = localStorage.getItem("id_mentee") - 1;
+    console.log(id);
+  }
 
   const getMentorDetail = async () => {
     const req = await MENTOR_GET_DETAIL(id);
@@ -22,8 +24,24 @@ const Mentor = () => {
     setMentor(req.data.data[0]);
   };
 
+  // const getMenteeDetail = async () => {
+  //   const req = await MENTEE_GET_DETAIL(id);
+  //   console.log(req.data.data[0]);
+  //   setMentee(req.data.data[0]);
+  // };
+
+  const getMenteeDetail = async () => {
+    const req = await MENTEE_GET_ALL();
+    console.log(req.data.data[id]);
+    setMentee(req.data.data[0]);
+  };
+
   useEffect(() => {
-    getMentorDetail();
+    if (localStorage.getItem("id_mentor")) {
+      getMentorDetail();
+    } else {
+      getMenteeDetail();
+    }
   }, []);
 
   useEffect(() => {
@@ -45,40 +63,33 @@ const Mentor = () => {
           <img src={profileImage} className="rounded-full" alt="" />
         </div>
         <div className="grid gap-3 col-span-5 md:w-2/5 capitalize">
-          <h1 className="title text-2xl col-span-2">{mentor.nama}</h1>
           <div className="title text-lg">
             <div className="grid grid-cols-8 gap-5 md:gap-14">
-              <h6 className="col-span-2 text-gray-500">Lokasi</h6>
-              <p className="col-span-6">{mentor.alamat}</p>
+              <h6 className="col-span-2 text-gray-500">Nama</h6>
+              <p className="col-span-6">
+                {mentor.nama}
+                {mentee.nama}
+              </p>
             </div>
             <div className="grid grid-cols-8 gap-5 md:gap-14">
-              <h6 className="col-span-2 text-gray-500">Kategori</h6>
-              <p className="col-span-6">{mentor.bidang}</p>
+              <h6 className="col-span-2 text-gray-500">Email</h6>
+              <p className="col-span-6">
+                {mentor.email}
+                {mentee.email}
+              </p>
             </div>
             <div className="grid grid-cols-8 gap-5 md:gap-14">
-              <h6 className="col-span-2 text-gray-500">Deskripsi</h6>
-              <p className="col-span-6">{mentor.deskripsi}</p>
+              <h6 className="col-span-2 text-gray-500">Pekerjaan</h6>
+              <p className="col-span-6">
+                {mentor.deskripsi}
+                {mentee.status}
+              </p>
             </div>
           </div>
-        </div>
-        <div className=" title md:grid grid-row-4 w-5/6 gap-2 col-span-1">
-          <h1 className="grid grid-cols-4 justify-end items-center text-xl text-yellow-400">
-            <img src={star} alt="" className="w-2/3" /> 5.0
-          </h1>
-          <p className="text-lg">{IDR.format(mentor.tarif)}/pertemuan</p>
-          {IsloggedIn && role &&
-            (
-              <Link
-                to={`/payment/${mentor.id_mentor}`}
-                className="row-span-2 flex justify-center p-2 rounded text-white bg-blue-500 hover:bg-blue-400 transition duration-500"
-              >
-                Pesan Sekarang
-              </Link>
-            )}
         </div>
       </div>
     </div>
   );
 };
 
-export default Mentor;
+export default Profile;

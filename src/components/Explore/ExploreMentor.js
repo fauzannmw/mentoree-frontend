@@ -10,9 +10,14 @@ const ExploreMentor = () => {
   const [mentors, setMentor] = useState([]);
   const [mentorsId, setMentorId] = useState();
 
+  let IDR = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "IDR",
+  });
+
   const getAllMentor = async () => {
     const req = await MENTOR_GET_ALL();
-    console.log(req.data); 
+    console.log(req.data);
     setMentor(req.data.data);
     setMentorId(req.data.data.id_mentor);
     // setMentorId(req.data.data.id);
@@ -46,13 +51,13 @@ const ExploreMentor = () => {
             className="flex rounded-md bg-white text-gray-800 border border-transparent"
           >
             <option value="" disabled>
-              Pilih Kategori Subjek Untuk Mentor
+              Pilih Kategori Subjek Untuk Mentor  
             </option>
-            <option value="1">Persiapan Karir</option>
-            <option value="2">Teknologi</option>
-            <option value="3">Seni dan Musik</option>
-            <option value="4">Perbankan</option>
-            <option value="5">Hukum</option>
+            <option value="1">UI UX</option>
+            <option value="2">Software Engineer</option>
+            <option value="3">Cyber Security</option>
+            <option value="4">Data Science</option>
+            <option value="5">Bussines Analyst</option>
           </select>
         </div>
       </div>
@@ -63,7 +68,6 @@ const ExploreMentor = () => {
               to={`/mentor-detail/${mentor.id_mentor}`}
               className=" md:w-60 h-full md:h-full p-2 capitalize bg-white rounded-xl shadow-lg hover:shadow-2xl transition duration-500"
             >
-              {/* <Link className=" md:w-60 md:h-80 p-2 bg-white rounded-xl transform transition-all hover:-translate-y-2 duration-300 "> */}
               <img
                 src={mentorImage}
                 alt=""
@@ -73,7 +77,7 @@ const ExploreMentor = () => {
                 <h2 className="font-bold text-lg">{mentor.nama}</h2>
                 <p className="text-sm text-gray-600">{mentor.deskripsi}</p>
                 <p className="font-bold text-sm text-red-400">
-                  Rp {mentor.tarif}/pertemuan
+                  {IDR.format(mentor.tarif)}/pertemuan
                 </p>
                 {/* <p className="text-sm text-gray-600">{mentor.latar_belakang}</p> */}
               </div>

@@ -11,19 +11,36 @@ const RegisterMentee = () => {
   const [password, setPassword] = useState("");
   const [status, setStatus] = useState("");
 
+  // async function onSubmit(e) {
+  //   e.preventDefault();
+  //   const req = await MENTEE_REGISTER(name, email, password, status);
+  //   console.log(req);
+  //   if (req.data.success) {
+  //     const token = req.data.data.token;
+  //     localStorage.setItem("token", token);
+  //     window.location.href = "/verification";
+  //   } else {
+  //     console.log(req.data.message);
+  //     alert("Email sudah digunakan");
+  //   }
+  // }
+
   async function onSubmit(e) {
     e.preventDefault();
     const req = await MENTEE_REGISTER(name, email, password, status);
     console.log(req);
     if (req.data.success) {
       const token = req.data.data.token;
+      const id = req.data.data.data.id;
       localStorage.setItem("token", token);
-      window.location.href = "/verification";
+      localStorage.setItem("id_mentee", id);
+      window.location.href = "/";
     } else {
       console.log(req.data.message);
       alert("Email sudah digunakan");
     }
   }
+
   // const { register } = useAuth();
   // register();
 

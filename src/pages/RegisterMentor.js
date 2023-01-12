@@ -17,6 +17,11 @@ const RegisterMentor = () => {
   const [about, setAbout] = useState("");
   const [rate, setRate] = useState("");
 
+  let IDR = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "IDR",
+  });
+
   function goNextPage(e) {
     e.preventDefault();
     if (page === 3) {
@@ -36,6 +41,26 @@ const RegisterMentor = () => {
     setPage((page) => page + 1);
   }
 
+  // async function onSubmit(e) {
+  //   e.preventDefault();
+  //   const req = await MENTOR_REGISTER(
+  //     nama,
+  //     email,
+  //     password,
+  //     alamat,
+  //     deskripsi,
+  //     bidang,
+  //     about,
+  //     rate,
+  //     pendidikan
+  //   );
+
+  //   console.log(req);
+  //   const token = req.data.data.token;
+  //   localStorage.setItem("token", token);
+  //   window.location.href = "/";
+  // }
+
   async function onSubmit(e) {
     e.preventDefault();
     const req = await MENTOR_REGISTER(
@@ -49,11 +74,16 @@ const RegisterMentor = () => {
       rate,
       pendidikan
     );
-
-    console.log(req);
-    const token = req.data.data.token;
-    localStorage.setItem("token", token);
-    window.location.href = "/";
+    if (req.data.success) {
+      const token = req.data.data[0].token;
+      const id = req.data.data[0].id_mentor;
+      localStorage.setItem("token", token);
+      localStorage.setItem("id_mentor", id);
+      window.location.href = "/";
+    } else {
+      console.log(req.data.message);
+      alert("Email sudah digunakan");
+    }
   }
 
   return (
@@ -171,11 +201,11 @@ const RegisterMentor = () => {
                     <option value="" disabled>
                       Pilih Kategori
                     </option>
-                    <option value="1">Persiapan Karir</option>
-                    <option value="2">Teknologi</option>
-                    <option value="3">Seni dan Musik</option>
-                    <option value="4">Perbankan</option>
-                    <option value="5">Hukum</option>
+                    <option value="1">UI UX</option>
+                    <option value="2">Software Engineer</option>
+                    <option value="3">Cyber Security</option>
+                    <option value="4">Data Science</option>
+                    <option value="5">Bussines Analyst</option>
                   </select>
                 </div>
                 <div className="flex flex-col gap-1">
@@ -229,6 +259,8 @@ const RegisterMentor = () => {
                     id="rate"
                     name="rate"
                     value={rate}
+                    min={0}
+                    step={0.01}
                     onChange={(e) => setRate(e.target.value)}
                     className="flex p-2.5 rounded-md bg-white text-gray-800 border border-gray-500 hover:border-gray-700"
                     required

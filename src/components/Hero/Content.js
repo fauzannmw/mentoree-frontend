@@ -14,10 +14,14 @@ const Content = (props) => {
           </div>
           <div className="p-10 md:p-40 md:w-5/6 col-span-2">
             <h1 className="title">Selamat Pembayaran Anda Berhasil</h1>
-            <h5 className="subtitle md:py-4">
+            {/* <h5 className="subtitle md:py-4">
               Silahkan menghubungi Mentor melalui kontak yang telah kami berikan
               pada email anda, terimakasih telah menggunakan layanan kami.
               Hubungi kami di +62123456789 untuk pertanyaan lebih lanjut.
+            </h5> */}
+            <h5 className="subtitle md:py-4">
+              Silahkan menghubungi Mentor melalui email {props.email},
+              terimakasih telah menggunakan layanan kami.
             </h5>
             <Link
               to=""

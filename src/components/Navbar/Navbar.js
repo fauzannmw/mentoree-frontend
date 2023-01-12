@@ -13,7 +13,7 @@ const Navbar = () => {
       setMobile(true);
     }
   }
-  
+
   useEffect(() => {
     const checkLocalStorage = () => {
       if (localStorage.getItem("token") === null) {
@@ -28,6 +28,8 @@ const Navbar = () => {
 
   function onLogout() {
     localStorage.removeItem("token");
+    localStorage.removeItem("id_mentor");
+    localStorage.removeItem("id_mentee");
     window.location.href = "/";
   }
 
@@ -85,6 +87,12 @@ const Navbar = () => {
           ) : (
             <div className="hidden md:flex items-center space-x-3 text-xl font-medium ">
               <Link
+                to="/profile"
+                className="py-1.5 px-8 text-gray-700 bg-transparent hover:bg-yellow-400 border border-yellow-300 hover:border-transparent rounded-3xl transition duration-500"
+              >
+                Profile
+              </Link>
+              <Link
                 to="/"
                 className="py-1.5 px-8 text-gray-700 bg-transparent hover:bg-yellow-400 border border-yellow-300 hover:border-transparent rounded-3xl transition duration-500"
                 onClick={onLogout}
@@ -118,48 +126,54 @@ const Navbar = () => {
 
       {mobile === true && (
         <div className="mobile-menu md:hidden py-4 transition duration-1000">
-          <a
-            href="/"
+          <Link
+            to="/"
             className="block py-2 px-6 text-lg font-medium text-gray-700 hover:text-gray-900"
           >
             Home
-          </a>
-          <a
-            href="/about-us"
+          </Link>
+          <Link
+            to="/about-us"
             className="block py-2 px-6 text-lg font-medium text-gray-700 hover:text-gray-900"
           >
             About Us
-          </a>
-          <a
-            href="/explore"
+          </Link>
+          <Link
+            to="/explore"
             className="block py-2 px-6 text-lg font-medium text-gray-700 hover:text-gray-900"
           >
             Explore
-          </a>
+          </Link>
           {!IsloggedIn ? (
             <>
-              <a
-                href="/login-gateaway"
+              <Link
+                to="/login-gateaway"
                 className="block py-2 px-6 text-lg font-medium text-gray-700 hover:text-gray-900"
               >
                 Masuk
-              </a>
-              <a
-                href="/register-gateaway"
+              </Link>
+              <Link
+                to="/register-gateaway"
                 className="block py-2 px-6 text-lg font-medium text-gray-700 hover:text-gray-900"
               >
                 Daftar
-              </a>
+              </Link>
             </>
           ) : (
             <>
-              <a
-                href="/"
+              <Link
+                to="/profile"
+                className="block py-2 px-6 text-lg font-medium text-gray-700 hover:text-gray-900"
+              >
+                Profile
+              </Link>
+              <Link
+                to="/"
                 className="block py-2 px-6 text-lg font-medium text-gray-700 hover:text-gray-900"
                 onClick={onLogout}
               >
                 Keluar
-              </a>
+              </Link>
             </>
           )}
         </div>

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import "./Hero.scss";
 import illustrationHomepage from "../../assets/illustration/illustration_landing_page_1.svg";
 import illustrationExplore from "../../assets/illustration/illustration_explore_1.svg";
-// import { MENTEE_GET_USER } from "../../api";
 
 const Hero = (props) => {
   return (

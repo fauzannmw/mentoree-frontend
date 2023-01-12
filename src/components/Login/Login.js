@@ -18,17 +18,30 @@ const Login = (props) => {
 
   async function onSubmit(e) {
     e.preventDefault();
+    var req = "";
+    var id = "";
+    var token = "";
     if (props.role === "Mentor") {
-      var req = "";
       req = await MENTOR_LOGIN(email, password);
+      token = req.data.data[0].token;
+      id = req.data.data[0].id_mentor;
+      localStorage.setItem("id_mentor", id);
     } else {
       req = await MENTEE_LOGIN(email, password);
+      token = req.data.data.token;
+      id = req.data.data.data[0].id;
+      localStorage.setItem("id_mentee", id);
+      console.log(req);
     }
-    console.log(req);
-    const token = req.data.data.token;
-    localStorage.setItem("token", token);
-    window.location.href = "/";
-    console.log(token);
+
+    if (req.data.success) {
+      localStorage.setItem("token", token);
+      window.location.href = "/";
+      console.log(token);
+    } else {
+      alert("Email atau Password yang anda masukkan salah");
+      console.log(req.data.message);
+    }
   }
 
   return (
